@@ -1,0 +1,84 @@
+@keyframes smoothscroll1 {
+  from, to { scroll-behavior: smooth; }
+}
+
+@keyframes smoothscroll2 {
+  from, to { scroll-behavior: smooth; }
+}
+
+html {
+  animation: smoothscroll1 1s;
+}
+
+html:focus-within {
+  animation-name: smoothscroll2;
+  scroll-behavior: smooth;
+}
+
+h1,h2,h3,h4 {font-weight: bold}
+    body {font-family: 'Fira Sans', sans-serif; }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+        
+        .heavy {font-weight: 700;}
+        
+        .container p, .container li, td, blockquote {font-weight: 300;}
+blockquote {padding: 0 2em;}
+  .navbar-brand {
+           margin-top: -0.15rem;
+            font-weight: bold;
+        }
+        
+         .navbar {
+             padding-top: 1rem;
+padding-bottom: 1rem;
+        }
+
+.black {background: #777; color: #fff; font-weight: 400}
+.black a{color:#fff;}
+.black a:hover, .black a:active {opacity: 0.8;}
+
+td, th {
+    align-content: left;
+  vertical-align: top;
+    padding: 3px;
+}
+
+td {font-size: 0.9rem;word-wrap:break-word;}
+
+td strong, p strong, li strong, blockquote strong {
+    font-weight: 700;
+}
+
+table {
+    margin-bottom: 2rem;table-layout:fixed;
+}
+
+ /* These are technically the same, but use both */
+td, p, li {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+/* Instead use this non-standard one: */
+  word-break: break-word;
+ -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+}
+      @media (max-width: 620px) {
+          iframe {width: 90%!important;
+          }
+td {font-size: 0.8rem;}
+          }
+      }
