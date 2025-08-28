@@ -52,76 +52,118 @@
 
 <main class="container">
  <h1>CMSC848N Generative AI Agents - Fall 2025</h1>
-    <h3>Description</h3>
-        <p>
-          This course dives into the cutting edge of <strong>generative AI agents</strong>&mdash;autonomous systems powered by large language and vision models that can reason, plan, and act in complex environments. Students will study both the theoretical foundations and practical techniques behind these systems, drawing from the latest research and industry applications.
-        </p>
-        <p>
-          We begin by establishing a foundation in modern generative AI, then progressively explore advanced capabilities that enable agents to function as intelligent collaborators. Core topics include:
-        </p>
-        <ul>
-          <li><strong>Reasoning and Planning</strong> &mdash; techniques for multi-step reasoning, strategy formulation, and decision-making.</li>
-          <li><strong>Tool Use and APIs</strong> &mdash; how agents interface with external resources, from databases to software tools.</li>
-          <li><strong>Memory and Context Management</strong> &mdash; mechanisms that allow agents to store, retrieve, and update knowledge.</li>
-          <li><strong>Multi-step and Multi-modal Interaction</strong> &mdash; enabling agents to coordinate across language, images, and structured data.</li>
-          <li><strong>Evaluation and Alignment</strong> &mdash; assessing reliability, safety, and performance of agents in real-world tasks.</li>
-        </ul>
-        <p>
-          <strong>Hands-on projects</strong> are central to the course. Students will incrementally design, implement, and evaluate their own generative AI agents, culminating in a final project where teams build agents capable of tackling open-ended, practical challenges.
-        </p>
-        <p>By the end of the course, students will:</p>
-        <ul>
-          <li>Understand the technical underpinnings of generative AI agents.</li>
-          <li>Gain practical skills in developing agents with reasoning, memory, and tool-use capabilities.</li>
-          <li>Critically analyze the opportunities and limitations of agent systems in research and industry.</li>
-        </ul>
 
-    <h3>Prerequisites</h3>
-        <p>
-          This course is intended for advanced undergraduates and graduate students with a b interest in artificial intelligence and machine learning. To succeed, students are expected to have:
-        </p>
-        <ul>
-          <li><strong>Programming proficiency in Python</strong>, including experience with libraries such as NumPy and PyTorch (or TensorFlow).</li>
-          <li><strong>Machine Learning fundamentals</strong>, including supervised and unsupervised learning, neural networks, and model evaluation.</li>
-          <li>Prior coursework in <strong>deep learning</strong> (e.g., sequence models, attention mechanisms) is recommended but not strictly required.</li>
-          <li>Familiarity with software engineering practices (version control, debugging, modular coding) will be helpful for project work.</li>
-        </ul>
-        <p>
-          Students who have taken introductory AI or machine learning courses will be well-prepared. A background in natural language processing or computer vision is a plus but not required&mdash;these concepts will be introduced as needed.
-        </p>
+  <section id="description" aria-labelledby="desc">
+    <h2 id="desc">Course Description</h2>
+      <p>
+        This course covers the <strong>foundations and frontiers of Generative AI Agents</strong>, blending theory and practice with state-of-the-art research in <em>LLMs, RL/RLHF, alignment, reasoning models, self-improvement, and agent safety</em>. Generative AI agents are autonomous systems powered by large language and vision models that can <strong>reason, plan, act, and adapt</strong> in complex environments. Students will study core methods and then apply them in research-oriented projects where they design, implement, and evaluate novel agent systems.
+      </p>
+      <ul>
+        <li><strong>LLMs & Reasoning Models</strong>: chain-of-thought, Monte Carlo Tree Search, and efficient reasoning methods.</li>
+        <li><strong>RL & RLHF Foundations</strong>: DPO, GRPO, bilevel optimization (PARL), and alignment challenges (MaxMin-RLHF, test-time alignment, Transfer-Q, GenARM, Collab).</li>
+        <li><strong>Self-Improvement & Safety</strong>: ensemble strategies (e.g., EnsemW2S), robustness, jailbreak/poisoning defenses, AI-generated content detection & watermarking.</li>
+        <li><strong>Agentive Workflows</strong>: design patterns, communication graphs, role optimization.</li>
+        <li><strong>Web/Code/Tool-Use Agents</strong>: architectures, capabilities, vulnerabilities, and orchestration frameworks.</li>
+        <li><strong>World Models</strong>: agents for web, robotics, and simulation environments.</li>
+      </ul>
 
-    <h3>Grading</h3>
-        <p>The purpose of assignments & grading is to provide extra incentive to help you keep up with the material and assess how well you understand it, so that you have a solid background in machine learning by the end of the semester.</p>
-
-        <p>I expect students to:</p>
+    <h3>Learning Outcomes</h3>
         <ul>
-          <li>Come to class prepared, having completed the assigned readings.</li>
-          <li>Complete the assigned weekly homework assignments before class, and be prepared to discuss their solution in class.</li>
-          <li>Participate actively in discussions both in person and online.</li>
+          <li>Understand key architectures and algorithms for generative AI agents.</li>
+          <li>Critically analyze and reproduce SoTA methods from research papers.</li>
+          <li>Design, implement, and evaluate novel AI agent systems.</li>
+          <li>Conduct research suitable for submission to top-tier AI/ML venues.</li>
         </ul>
 
-        <p>Your grade will be based on:</p>
-          <ul>
-            <li><strong>Homeworks (20%). </strong>There will be roughly one homework per week released on Canvas. Each is worth 1 to 2% of your final grade, depending on its length. The weights will be marked accordingly. Homeworks that are not autograded will be graded on a high-pass (100%), low-pass (50%) or fail (0%) basis. These are to be completed individually.</li>
-            <li><strong>Programming projects (30%). </strong>There are three programming projects, each worth 10% of your final grade. You will be graded on both code correctness as well as your analysis of the results. These must be completed in teams of two or three students.</li>
-            <li><strong>Midterm exam (20%). </strong>There will be an in-class midterm exam, obviously to be completed individually. You may bring one sheet of notes.</li>
-            <li><strong>Final exam (30%). </strong>There will be a (cumulative) final exam, during the official slot, to be completed individually. You may bring one sheet of notes.</li>
-          </ul>
-    
+  <section id="prereqs" aria-labelledby="prereqs-title">
+
+    <h2 id="prereqs-title">Prerequisites</h2>
+    <p>
+    This course assumes a solid foundation in machine learning, mathematics, and programming. 
+    Students should have completed prior coursework in machine learning or deep learning, 
+    and be comfortable implementing algorithms in Python. 
+    Specific prerequisites are outlined below:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Machine Learning Foundations</strong>
+        <ul>
+          <li>Supervised, unsupervised, and reinforcement learning</li>
+          <li>Core concepts: classification, regression, cross-validation, overfitting, generalization</li>
+          <li>Neural networks: basic architectures and training methods</li>
+        </ul>
+      </li>
+
+      <li>
+        <strong>Mathematics for ML</strong>
+        <ul>
+          <li><strong>Calculus &amp; Linear Algebra</strong>: gradients of multivariate functions, dot products, projections, solving multivariate equations, matrix inversion, matrix factorization</li>
+          <li><strong>Optimization</strong>: constrained optimization with Lagrange multipliers, convexity, and convex optimization basics</li>
+          <li><strong>Probability &amp; Statistics</strong>: random variables, expectations, variance, Bayes’ rule, conditional independence, maximum likelihood estimation for common distributions</li>
+        </ul>
+      </li>
+
+      <li>
+        <strong>Programming Skills</strong>
+        <ul>
+          <li>Proficiency in Python</li>
+          <li>Experience with numerical and ML libraries (e.g., NumPy, PyTorch, or TensorFlow)</li>
+          <li>Familiarity with version control, debugging, and modular coding</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>
+    Background in natural language processing or computer vision is helpful but not required; 
+    necessary concepts will be introduced as needed during the course.
+    </p>
+
+    <!-- <h2 id="prereqs-title">Prerequisites</h2>
+    <p><strong>ML Foundations:</strong> supervised/unsupervised/reinforcement learning; classification, regression, cross-validation, overfitting/generalization; deep neural networks.</p>
+    <p><strong>Mathematics for ML:</strong></p>
+    <ul>
+      <li><strong>Calculus & Linear Algebra</strong>: compute gradients of multivariate functions; dot products/projections; solving multivariate equations; matrix inversion/factorization.</li>
+      <li><strong>Optimization</strong>: Lagrange multipliers, convexity, constrained optimization.</li>
+      <li><strong>Probability & Statistics</strong>: random variables, expectation/variance, chain & marginalization rules, Bayes’ rule, conditional independence, MLE for Bernoulli/Gaussian.</li>
+    </ul>
+    <p><strong>Programming:</strong> Proficiency in Python with NumPy and PyTorch/TensorFlow is expected. Prior ML or deep learning coursework required; additional NLP/CV background is helpful but not required.</p> -->
+  </section>
+
+  
+
+  <section id="format" aria-labelledby="format-title">
+    <h2 id="format-title">Course Format &amp; Workload</h2>
+      <p>
+      This course is structured around a mix of lectures, paper discussions, and a semester-long research project. 
+      Lectures will introduce concepts and recent research on generative AI agents, often accompanied by 
+      assigned readings to be discussed in class. Students will engage in breakout discussions, 
+      short impromptu quizzes, and TA-led Q&amp;A sessions to deepen understanding.
+      </p>
+
+      <p>
+      A major emphasis of the course is the <strong>team-based project</strong>, where students will design, 
+      implement, and evaluate their own AI agents. Progress will be documented through interim reports and 
+      presentations, culminating in a final written report and showcase at the end of the semester.
+      </p>
+
+      <p>
+      Students should expect to spend approximately <strong>8–12 hours per week outside of class</strong> 
+      on readings, coding, experiments, and collaboration with their teammates. 
+      All assessment details (including grading weights and deadlines) are provided on the 
+      <a href="assessments.html">Assessments</a> and <a href="schedule.html">Schedule</a> pages.
+      </p>
+  </section>
 
     <h3>Communication and Discussion</h3>
-        <p>We will be using Piazza for class-related discussion and communication. The system is highly catered to getting you help fast and efficiently from classmates, the TA, and myself. Rather than emailing questions to the teaching staff, please post your questions on Piazza (either as public discussions or as private posts to instructors). All messages sent to the instructors email addresses will be redirected to Piazza.<br />
+        <p>We will be using Slack for class-related discussion and communication. The system is highly catered to getting you help fast and efficiently from classmates, the TA, and myself. Rather than emailing questions to the teaching staff, please post your questions on Slack (either as public discussions or as private posts to instructors). All messages sent to the instructors email addresses will be redirected to Slack.<br />
 
-        Find our class page at: <a href="https://piazza.com/umd/fall2025/cmsc848n-0101/home">https://piazza.com/umd/fall2025/cmsc848n-0101/home</a><br />
-
-        If you have any problems or feedback for the developers, email <a href="mailto:team@piazza.com">team@piazza.com</a>.</p>
+        Find our slack server at: <a href=""></a><br />
 
     <h3>Logistics</h3>
-
-
       <h4>When & Where</h4>
           <p>Section 0101<br />
-          Lecture: Tuesday and Thursday 12:30pm - 1:45pm</p>
+          Lecture: Tuesday and Thursday 12:30pm - 1:45pm · CSI 2117</p>
 
       <h4>Instructors</h4>
         <p><strong>Furong Huang</strong><br />Brendan Iribe Center for Computer Science and Engineering, Room 4124<br />
@@ -140,7 +182,7 @@
         </p>
 
       <h4>Contact Us</h4>
-       <p>If you're a registered student, send a private post to instructors on Piazza. If not, send an email including "848N" in the title (not recommended).</p>
+       <p>If you're a registered student, send a message to instructors on Slack. If not, send an email including "848N" in the title (not recommended).</p>
 
     <br><br><hr>
    <p><a href="#top">Back to top</a> | &copy; <script>document.write(/\d{4}/.exec(Date())[0])</script> Furong Huang at UMD | <a href="https://github.com/paulhaimes/syllabus-template" target="_blank">View template on Github</a></p>
