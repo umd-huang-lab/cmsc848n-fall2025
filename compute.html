@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Zaratan cluster usage and best practices">
+    <meta name="author" content="Course Staff">
+    <title>Zaratan — CMSC848N | Furong Huang | UMD</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,700;1,200;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/navbar-top.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo.png">
+  </head>
+  <body>
+
+<nav id="top" class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">CMSC848N</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+       <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="syllabus.html">Syllabus</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="schedule.html">Schedule</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="assessments.html">Assessments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="policies.html">Policies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="quick-links.html">Quick Links</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <h1>Compute Resource</h1>
+
+  <p><strong>Note:</strong> To access links on this page, you must be connected to UMD's GlobalProtect VPN.</p>
+
+  <h2>Zaratan Basics</h2>
+  <p>Please refer to the official documentation:</p>
+  <ul>
+    <li><strong>UMD HPC Wiki:</strong> <a href="https://hpcc.umd.edu">https://hpcc.umd.edu</a></li>
+    <li><strong>Zaratan Wiki:</strong> <a href="https://hpcc.umd.edu/home/clusters/zaratan/">https://hpcc.umd.edu/home/clusters/zaratan/</a></li>
+  </ul>
+
+  <p>Start with the <strong>Getting Started</strong> and <strong>Knowledge Base</strong> sections. These pages explain:</p>
+  <ul>
+    <li>How to log in to Zaratan</li>
+    <li>Basic Linux shell usage</li>
+    <li>SLURM job submission and monitoring commands</li>
+  </ul>
+
+  <p>It is <strong>essential</strong> that you read and understand these topics before running jobs. Knowing how to submit, monitor, and troubleshoot jobs will save time and prevent misuse of the cluster.</p>
+
+  <hr>
+
+  <h2>Login Node Etiquette</h2>
+  <p><strong>Do not</strong> run compute-heavy tasks on the login nodes. These nodes are shared by all users and are intended only for:</p>
+  <ul>
+    <li>Submitting jobs</li>
+    <li>Monitoring jobs</li>
+    <li>Editing files and scripts</li>
+    <li>Transferring data</li>
+  </ul>
+  <p>Running large tasks on the login node can slow down or hang sessions for everyone. Always submit compute workloads through SLURM so they run on proper compute nodes.</p>
+
+  <hr>
+
+  <h2>Dataset and Model Storage</h2>
+  <p>Your <strong>home directory quota is 10GB</strong>. Do <strong>not</strong> store large datasets, models, or checkpoints in your home directory.</p>
+  <p>For storage guidelines, see the <strong>HPC Storage Tiers</strong> page: <a href="https://hpcc.umd.edu/kb/storage/#high-performancescratch-storage-tier">https://hpcc.umd.edu/kb/storage/#high-performancescratch-storage-tier</a></p>
+
+  <h3>Recommended Practice</h3>
+  <p>Use <strong>scratch storage</strong> or <strong>project storage</strong> for:</p>
+  <ul>
+    <li>Datasets</li>
+    <li>Model checkpoints</li>
+    <li>Caches for tools like Conda, HuggingFace, DeepSpeed, etc.</li>
+  </ul>
+  <p>Scratch is high-performance storage designed for large files and frequent reads/writes.</p>
+
+  <h2>Setting Cache Locations to <code>~/scratch</code></h2>
+  <p>Create directories first:</p>
+  <pre><code>mkdir -p ~/scratch/conda_pkgs
+mkdir -p ~/scratch/hf_cache
+mkdir -p ~/scratch/deepspeed_cache
+</code></pre>
+
+  <h4>Conda Cache</h4>
+  <p>Add this to your <code>~/.condarc</code>:</p>
+  <pre><code>pkgs_dirs:
+  - ~/scratch/conda_pkgs
+</code></pre>
+
+  <h4>HuggingFace Cache</h4>
+  <p>Add to <code>~/.bashrc</code> (or your job script):</p>
+  <pre><code>export HF_HOME=~/scratch/hf_cache
+export TRANSFORMERS_CACHE=~/scratch/hf_cache
+export HF_DATASETS_CACHE=~/scratch/hf_cache
+</code></pre>
+
+  <h4>DeepSpeed Cache</h4>
+  <p>Add to <code>~/.bashrc</code> (or your job script):</p>
+  <pre><code>export DS_ACCELERATOR_CACHE=~/scratch/deepspeed_cache
+export DEEPSPEED_CACHE=~/scratch/deepspeed_cache
+</code></pre>
+
+  <p>Reload your shell config:</p>
+  <pre><code>source ~/.bashrc
+</code></pre>
+
+  <hr>
+
+  <h2>Usage Budget</h2>
+  <p>Our allocation is limited. Please try to keep your compute usage <strong>under ~9,000 SU per team</strong> and storage <strong>usage under 400GB per team</strong>. Be mindful and efficient with resource requests.</p>
+
+  <p>If you have questions or run into issues, please reach out early — we're here to help you use the cluster effectively!</p>
+
+  <br><br><hr>
+  <p><a href="#top">Back to top</a> | &copy; <script>document.write(/\d{4}/.exec(Date())[0])</script> Furong Huang at UMD | <a href="https://github.com/paulhaimes/syllabus-template" target="_blank">View template on Github</a></p>
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+  </body>
+</html>
